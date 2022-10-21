@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+        /*
+            *是通配符，也是一个选择器，叫做通用选择器，作用是匹配html中所有的标签元素
+            box-sizeing 属性定义如何计算一个元素的总宽度和总高度，主要设置是否需要加上内边距和边框等
+                - content-box 默认值，如果你设置一个元素的宽为100px,那么这个元素的内容区会有100px宽，并且任何边框和内边距的宽度都会被增加到最后绘制
+                出来的元素宽度中。
+                - border-box 告诉浏览器，你想要设置的边框和内边距的值是包含在width内的。
+                举个例子：如果你将一个元素的width设为100px，那么这100px会包含它的border和padding，内容去的实际宽度是width减去border + padding 的值。
+                - inherit 指定box-sizing属性的值。应该从父元素继承。
+        */
+        * {
+            box-sizing: border-box;
+        }
+        /*
+            font-family: 指定一个元素的字体。
+            可以把多个字体名称作为一个‘回退’系统来保存。如果浏览器不支持第一个字体，则会尝试下一个。
+
+            display : flex 的意思是弹性布局的意思。
+                flex-direction: row; 布局的排列方向，主轴排列方向
+                    - row 默认值，显示为行。方向为当前文档水平流方向，默认情况下是从左往右。
+                    - row-reverse 显示为行。但是方向和row属性值是相反的，在水平方向上为从右往左。
+                    - column 显示为列，方向为在垂直方向从上到下。
+                    - column-reverse 显示为列。但是方向和column相反。
+                flex-wrap : nowrap; 是否进行换行处理，此语法是加载父元素身上的。
+                    - nowrap 默认值 不换行处理
+                    - wrap 换行处理
+                    - wrap-reverse 反向换行
+                    - flex-flow : flex-direction flex-wrap 复合写法（有顺序限制，顺序一定不能乱）
+                justify-content; 属性决定了主轴方向上子项的对齐和分布方式。
+                    - flex-start : 子项都去起始位置对齐。
+                    - flex-end : 子项都去结束位置对齐。
+                    - center : 子项都去中心位置对齐。
+                    - space-between : 表现为两端对齐。意思是多余的空白键距旨在元素中间区域分配。
+                    - space-around : 环绕，意思是每个flex子项两侧都环绕互不干扰的等宽的空白间距，最终视觉上边缘两侧的空白只有中间空白宽度的一半。
+                    - space-evenly : 平等，每个flex子项两侧空白间距完全相等。
+                align-items ; 每一行中的子元素上下对齐方式。
+                    - flex-start : 顶部对齐;
+                    - center : 居中对齐;
+                    - flex-end : 底部对齐;
+                align-content ; 跟justify-content相反的操作。侧轴的对齐方式。值跟justify-content 相同。
+
+                vh : CSS中的相对长度单位，表示相对视口高度，1vh = 1% * 视口高度。
+
+                overflow : 溢出(容器)，当内容超出容器时只需要添加overflow属性 值为hidden， 就可以把超出容器的部分隐藏起来；
+                    - auto 属性如果超出就出现滚动条，没有超出则不出现滚动条这样就可以出现出现滚动条。滚动条可以单独设置，属性名为
+                    overflow-x , overflow-y 设置为auto时，就可以看到各自方向的滚动条。
+                
+                margin 设置对象四边的外延边距，外延边距。
+                延申属性有：margin-top , margin-bottom , margin-left , margin-right
+
+
+        */
+        body {
+            font-family: 'Muli', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        
+
+        .container{
+            display: flex;
+            width: 90vw;
+        }
+        /*
+            background-size : 设置背景图片的大小
+             - length 设置背景图片的高度和宽度，第一个值设置宽度，第二个值设置高度，如果只给一个值，第二个默认值为auto
+             - percentage 将计算相对于背景定位区域的百分比，第一个值设置宽度，第二个值设置高度，各个值之间以空格 隔开指定宽和高
+             ，以逗号隔开指定多重背景，如果只给一个值，第二个值默认为auto
+             - cover 此时会保持图像的纵横比将图像缩放成完全覆盖背景定位区域的最小大小。
+             - contain 此时会保持图像的纵横比并将图像缩放成适合背景定位区域的最大大小。
+
+             
+        */
+        .panel {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 80vh;
+            border-radius: 50px;
+            color: #fff;
+            cursor: pointer;
+            flex: 0.5;
+            margin: 10px;
+            position: relative;
+            -webkit-transition: all 700ms ease-in;
+        }
+
+        .panel h3{
+            font-size: 24px;
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            margin: 0;
+            opacity: 0;
+        }
+
+        .panel.active{
+            flex: 5;
+        }
+
+        .panel.active h3{
+            opacity: 1;
+            transition: opacity 0.3s ease-in 0.4s;
+        }
+
+        @media (max-width: 480px){
+            .container{
+                width: 100vw;
+            }
+
+            .panel:nth-of-type(4),
+            .panel:nth-of-type(5){
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="panel active" style="background-image: url('./1.webp');">
+            <h3>Expolore The World</h3>
+        </div>
+        <div class="panel" style="background-image: url('./2.webp');">
+            <h3>Wild Forest</h3>
+        </div>
+        <div class="panel" style="background-image: url('./3.webp');">
+            <h3>Sunny Beach</h3>
+        </div>
+        <div class="panel" style="background-image: url('./4.webp');">
+            <h3>City on Winter</h3>
+        </div>
+        <div class="panel" style="background-image: url('./5.webp');">
+            <h3>Mountains - Clouds</h3>
+        </div>
+    </div>
+
+    <script>
+        const panels = document.querySelectorAll('.panel')
+
+        panels.forEach(panel => {
+            panel.addEventListener('click', ()=>{
+                removeActiveClasses()
+                panel.classList.add('active')
+            })
+        })
+
+        function removeActiveClasses(){
+            panels.forEach(panel =>{
+                panel.classList.remove('active')
+            })
+        }
+    </script>
+</body>
+</html>
