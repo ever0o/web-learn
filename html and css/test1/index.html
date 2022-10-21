@@ -82,7 +82,51 @@
              - cover 此时会保持图像的纵横比将图像缩放成完全覆盖背景定位区域的最小大小。
              - contain 此时会保持图像的纵横比并将图像缩放成适合背景定位区域的最大大小。
 
-             
+             background-position: 设置背景图片的起始位置
+                - left top
+                - left center
+                - left bottom
+                - right top
+                - right center
+                - right bottom
+                - center top
+                - center center
+                - center bottom
+                以上如果仅指定一个关键字，其他值将会是center
+                x%y% 第一个值是水平位置，第二个值是垂直，左上角是0%0%，右下角是100%100%，如果仅指定一个值，另一个值默认为50%
+                xpos ypos 第一个值是水平位置，第二个值是垂直位置，左上角是0。单位可以是像素或任何其他CSS单位。如果仅指定一个值，其他值将是50%。
+                inherit 指定background-position属性设置应该从父元素继承
+
+                background-repeat: 设置定义了图像的平铺模式
+                    - repeat 默认值，背景图像将在垂直方向和水平方向重复
+                    - repeat-x 背景图像将在水平方向重复
+                    - repeat-y 背景图像将在垂直方向重复
+                    - no-repeat 背景图像将仅显示一次
+                    - inherit 规定应该从父元素继承 background-repeat属性的设置
+                
+                border-radius: 为元素添加圆角边框
+                    举例 border-radius: 10px 20px 30px 30px/40px 30px 20px 10px 前四个数值表示圆角的水平半径，后面四个值表示圆角的垂直半径。
+
+                cursor : 定义鼠标指针放在一个元素边界范围内时所用的光标的形状。
+                    - url 需要使用的自定义光标的URL
+                    - default 默认光标
+                    - auto 默认值 浏览器设置的光标
+                    - crosshair 光标为十字线
+                    - pointer 光标呈现为知识链接的指针(一只手)
+                    - move 此光标指示某对象可被移动
+                    - e-resize 此光标指示矩形框的边缘可被向右移动
+                    - ne-resize 此光标指示矩形框的边缘可被向上及向右移动（北/东）。
+                    - nw-resize	此光标指示矩形框的边缘可被向上及向左移动（北/西）。
+                    - n-resize	此光标指示矩形框的边缘可被向上（北）移动。
+                    - se-resize	此光标指示矩形框的边缘可被向下及向右移动（南/东）。
+                    - sw-resize	此光标指示矩形框的边缘可被向下及向左移动（南/西）。
+                    - s-resize	此光标指示矩形框的边缘可被向下移动（南）。
+                    - w-resize	此光标指示矩形框的边缘可被向左移动（西）。
+                    - text	此光标指示文本。
+                    - wait	此光标指示程序正忙（通常是一只表或沙漏）。
+                    - help	此光标指示可用的帮助（通常是一个问号或一个气球）。
+                
+                position: 
         */
         .panel {
             background-size: cover;
