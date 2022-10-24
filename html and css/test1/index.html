@@ -126,7 +126,21 @@
                     - wait	此光标指示程序正忙（通常是一只表或沙漏）。
                     - help	此光标指示可用的帮助（通常是一个问号或一个气球）。
                 
-                position: 
+                position: 指定一个元素的定位方法的类型。
+                    - absolute 生成绝对定位的元素，相对于static定位意外的第一个父元素进行定位。
+                    - fixed 生成归档定位的元素，相对于浏览器窗口进行定位。
+                    - relative 生成相对定位的元素，相对于其正常位置进行定位。
+                    - static 默认值 没有定位，元素出现在正常的流中。
+                    - sticky 粘性定位，该定位基于用户滚动的位置。
+                    - inherit 规定应该从父元素继承position 属性的值。
+                    initial 设置该属性为默认值
+
+                -webkit-transition : 过渡是元素从一种样式逐渐改变为另一种的效果。(必须规定两项内容，指定要添加效果的CSS属性，指定效果的持续时间)
+
+                flex : 用于设置或检索弹性盒模型对象的子元素如何分配空间
+                        flex 属性是flex-grow, flex-shrink 和flex-basis 属性的简写属性。
+                
+
         */
         .panel {
             background-size: cover;
@@ -159,7 +173,10 @@
             opacity: 1;
             transition: opacity 0.3s ease-in 0.4s;
         }
-
+        /*
+            @media : 使用@media 查询， 你可以针对不同的媒体类型定义不同的样式。
+            @media 可以针对不同的屏幕尺寸设置不同的样式，特别是如果你需要设置响应式的页面， @media 是非常有用的。
+        */
         @media (max-width: 480px){
             .container{
                 width: 100vw;
