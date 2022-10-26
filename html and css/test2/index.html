@@ -10,7 +10,7 @@
 
         :root {
             --line-border-fill: #3498db;
-            --line-border-emplay: #e0e0e0;
+            --line-border-empty: #e0e0e0;
         }
 
         * {
@@ -43,7 +43,7 @@
 
         .progress-container::before {
             content: '';
-            background-color: var(--line-border-emplay);
+            background-color: var(--line-border-empty);
             position: absolute;
             top: 50%;
             left: 0;
@@ -74,7 +74,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 3px solid var(--line-border-emplay);
+            border: 3px solid var(--line-border-empty);
             transition: 0.4s ease;
         }
 
@@ -103,7 +103,7 @@
         }
 
         .btn:disabled {
-            background-color: var(--line-border-emplay);
+            background-color: var(--line-border-empty);
             cursor: not-allowed;
         }
 </style>
@@ -157,7 +157,21 @@
                     circle.classList.remove('active')
                 }
             })
+
+            const actives = document.querySelectorAll('.active')
+
+            progress.style.width = (actives.length -1)/(circles.length -1) * 100 + '%'
+
+            if(currentActive === 1){
+                prev.disabled = true
+            } else if(currentActive === circles.length){
+                next.disabled = true
+            } else {
+                prev.disabled = false
+                next.disabled = false
+            }
         }
+
     </script>
 </body>
 </html>
